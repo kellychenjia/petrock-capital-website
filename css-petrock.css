@@ -2363,9 +2363,14 @@ p {
   font-display: swap;
 }
 /* ── Portfolio status tags ──────────────────────────────────────────────
-   "Acquired" / "Public" badges on portfolio logo tiles. Positioned inside
-   .block-logo (position: relative; overflow: hidden) and above .logo-base
-   (z-index 0). Picks up the tile's existing white hover treatment. */
+   "Acquired" / "Public" badges on portfolio logo tiles.
+
+   Anchored BOTTOM-CENTRE, not to a corner. The tile (.block-logo) is 11rem
+   tall with a transparent border, and .logo-base is an absolutely positioned
+   object-fit: contain image, so each logo mark sits centred with a different
+   amount of slack around it. A corner-pinned badge floats in empty space and
+   lands somewhere different on every tile. Centring it under the mark keeps
+   it in the same visual relationship to every logo. */
 .logo-tag {
   z-index: 2;
   border: 1px solid #ffffff3d;
@@ -2382,8 +2387,9 @@ p {
   white-space: nowrap;
   transition: all .2s;
   position: absolute;
-  top: .625rem;
-  right: .625rem;
+  bottom: .875rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .block-logo:hover .logo-tag {
@@ -2393,8 +2399,7 @@ p {
 
 @media screen and (max-width: 767px) {
   .logo-tag {
-    top: .5rem;
-    right: .5rem;
+    bottom: .625rem;
     padding: .18rem .4rem;
     font-size: .5625rem;
   }
