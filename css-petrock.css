@@ -2362,3 +2362,40 @@ p {
   font-style: normal;
   font-display: swap;
 }
+/* ── Portfolio status tags ──────────────────────────────────────────────
+   "Acquired" / "Public" badges on portfolio logo tiles. Positioned inside
+   .block-logo (position: relative; overflow: hidden) and above .logo-base
+   (z-index 0). Picks up the tile's existing white hover treatment. */
+.logo-tag {
+  z-index: 2;
+  border: 1px solid #ffffff3d;
+  border-radius: .375rem;
+  background-color: #ffffff0f;
+  padding: .2rem .45rem;
+  font-family: Satoshi, sans-serif;
+  font-size: .625rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #ffffffb8;
+  white-space: nowrap;
+  transition: all .2s;
+  position: absolute;
+  top: .625rem;
+  right: .625rem;
+}
+
+.block-logo:hover .logo-tag {
+  border-color: #fff;
+  color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  .logo-tag {
+    top: .5rem;
+    right: .5rem;
+    padding: .18rem .4rem;
+    font-size: .5625rem;
+  }
+}
